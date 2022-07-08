@@ -1,21 +1,42 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Hello React</title>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" type="text/css" href="00.normal.css" />
-  </head>
-  <body>
-    <div id="app">
-      <!-- my app renders here -->
-    </div>
-    <script src="react/react.js"></script>
-    <script src="react/react-dom.js"></script>
-    <script>
-      ReactDOM.render(
-        React.createElement('h1', null, 'Hello world!'),
-        document.getElementById('app'),
-      );
-    </script>
-  </body>
+	<head>
+		<title>Hello React</title>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" type="text/css" href="00.normal.css" />
+	</head>
+	<body>
+		<div id="app">
+			<!-- my app renders here -->
+		</div>
+		<script src="react/react.js"></script>
+		<!-- include React library -->
+		<script src="react/react-dom.js"></script>
+		<!-- include React DOM -->
+		<script>
+			ReactDOM.render(
+				React.createElement(
+					'h1',
+					{ id: 'my-heading' }, // specifies properties that you want to pass to the element
+					React.createElement(
+						'span',
+						null,
+						'Hello ',
+						React.createElement('em', null, 'wonderful ')
+					), // child element 1
+					'world!' // child element 2
+				),
+
+				/* equivalent HTML
+
+          <h1 id="my-heading">
+            <span>Hello </span>
+            "world!"
+          </h1>
+
+          */
+				document.getElementById('app')
+			)
+		</script>
+	</body>
 </html>
